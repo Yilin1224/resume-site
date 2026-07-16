@@ -1,36 +1,26 @@
-import { Code2 } from "lucide-react";
 import { resume } from "@/data/resume";
 import SectionReveal from "./SectionReveal";
 
 export default function Skills() {
-  return (
-    <SectionReveal id="skills" className="scroll-mt-28 px-4 py-20 sm:px-6">
-      <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-        <div>
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-emerald-200/80">
-            Skills
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
-            Tools for turning ideas into shipped work.
-          </h2>
-          <div className="mt-6 inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.05] px-3 py-2 text-sm text-white/62">
-            <Code2 size={16} aria-hidden="true" />
-            <span>{resume.skills.length} core skills</span>
-          </div>
-        </div>
+  const groups = [
+    { title: "Languages & Systems", items: resume.skills.filter((_, i) => i < 3) },
+    { title: "Frameworks & Practice", items: resume.skills.filter((_, i) => i >= 3 && i < 6) },
+    { title: "Instruments & Analysis", items: resume.skills.filter((_, i) => i >= 6) },
+  ].filter((group) => group.items.length);
 
-        <div className="rounded-lg border border-white/10 bg-white/[0.045] p-5 shadow-2xl shadow-black/20 backdrop-blur-xl">
-          <div className="flex flex-wrap gap-3">
-            {resume.skills.map((skill, index) => (
-              <span
-                key={skill}
-                className="skill-float rounded-md border border-emerald-100/14 bg-emerald-100/[0.075] px-4 py-2 text-sm font-medium text-emerald-50 shadow-lg shadow-black/10"
-                style={{ animationDelay: `${(index % 6) * 0.18}s` }}
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+  return (
+    <SectionReveal id="skills" className="px-5 py-16 sm:px-10 lg:px-16 lg:py-24">
+      <div className="grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
+        <header><p className="section-kicker">Section IV · Working Index</p><h2 className="section-title mt-3">Tools,<br/><em className="font-normal text-[#743f43]">methods &</em><br/>instruments.</h2></header>
+        <div className="border-t-2 border-[#29251f]">
+          {groups.map((group, groupIndex) => (
+            <div key={group.title} className="grid border-b border-[#8d7c62] py-6 sm:grid-cols-[12rem_1fr]">
+              <p className="small-caps mb-4 text-[#743f43] sm:mb-0">{String(groupIndex + 1).padStart(2,"0")} / {group.title}</p>
+              <ol className="grid grid-cols-2 gap-x-8 sm:grid-cols-3">
+                {group.items.map((skill, index) => <li key={skill} className="border-b border-[#8d7c62]/50 py-2 text-lg"><span className="mr-2 font-sans text-[9px] text-[#6f6557]">{String(index + 1).padStart(2,"0")}</span>{skill}</li>)}
+              </ol>
+            </div>
+          ))}
         </div>
       </div>
     </SectionReveal>

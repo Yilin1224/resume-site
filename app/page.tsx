@@ -8,7 +8,7 @@ import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#050807] text-white">
+    <div className="paper mx-auto min-h-screen max-w-[1440px] overflow-hidden">
       <Navbar />
       <main>
         <Hero />
@@ -18,9 +18,6 @@ export default function Home() {
         <Skills />
         <Contact />
       </main>
-      <footer className="px-4 py-8 text-center text-sm text-white/42 sm:px-6">
-        Built with Next.js, TypeScript, Tailwind CSS, Motion, and Lucide.
-      </footer>
     </div>
   );
 }

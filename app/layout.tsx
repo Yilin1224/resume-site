@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Personal Resume Portfolio",
-  description: "A polished personal resume portfolio built with Next.js.",
+  title: "Yilin Dai — Portfolio & Professional Chronicle",
+  description: "The portfolio and professional chronicle of Yilin Dai.",
 };
 
 export default function RootLayout({
@@ -12,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className="h-full">
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

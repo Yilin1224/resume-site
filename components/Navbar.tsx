@@ -1,53 +1,31 @@
-import { Download } from "lucide-react";
 import { resume } from "@/data/resume";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  ["I", "Profile", "#about"], ["II", "Chronicle", "#experience"],
+  ["III", "Selected Works", "#projects"], ["IV", "Index", "#skills"],
+  ["V", "Correspondence", "#contact"],
 ];
 
 export default function Navbar() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#07100f]/70 backdrop-blur-2xl">
-      <nav
-        className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6"
-        aria-label="Primary navigation"
-      >
-        <a href="#home" className="group flex items-center gap-3">
-          <span className="flex size-9 items-center justify-center rounded-md border border-emerald-200/20 bg-white/[0.07] text-sm font-semibold text-emerald-100 shadow-lg shadow-emerald-950/30">
-            {resume.name
-              .split(" ")
-              .map((part) => part[0])
-              .join("")
-              .slice(0, 2)}
-          </span>
-          <span className="hidden text-sm font-medium text-white/90 sm:block">
-            {resume.name}
-          </span>
+    <header id="home" className="px-5 pt-5 sm:px-10 lg:px-16">
+      <div className="flex items-center justify-between border-y border-[#594d3d] py-2 font-sans text-[9px] font-bold uppercase tracking-[.2em] sm:text-[10px]">
+        <span>Portfolio Gazette · Vol. I</span>
+        <span className="hidden sm:block">{resume.location} · Open Edition</span>
+        <a className="text-[#743f43] hover:underline" href="/resume.pdf">Résumé · PDF</a>
+      </div>
+      <div className="border-b-4 border-double border-[#594d3d] py-5 text-center sm:py-7">
+        <a href="#home" aria-label="Back to top">
+          <p className="small-caps mb-2 text-[#743f43]">The Professional Record of</p>
+          <p className="text-[clamp(3.1rem,10vw,8rem)] font-bold leading-[.75] tracking-[-.065em]">{resume.name}</p>
         </a>
-
-        <div className="hidden items-center gap-1 md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-3 py-2 text-sm text-white/68 transition hover:bg-white/[0.06] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
-            >
-              {item.label}
-            </a>
-          ))}
-        </div>
-
-        <a
-          href="/resume.pdf"
-          className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-emerald-300/25 bg-emerald-300/10 px-3 text-sm font-medium text-emerald-50 shadow-lg shadow-emerald-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-300/16 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
-        >
-          <Download size={16} aria-hidden="true" />
-          <span>Resume</span>
-        </a>
+      </div>
+      <nav aria-label="Primary navigation" className="grid grid-cols-2 border-b border-[#594d3d] font-sans text-[10px] font-bold uppercase tracking-[.12em] sm:grid-cols-5">
+        {navItems.map(([number, label, href]) => (
+          <a key={href} href={href} className="border-[#8d7c62] px-3 py-3 text-center transition hover:bg-[#743f43] hover:text-[#f5edda] sm:border-r sm:last:border-r-0">
+            <span className="mr-2 text-[#743f43]">{number}.</span>{label}
+          </a>
+        ))}
       </nav>
     </header>
   );

@@ -1,38 +1,23 @@
-import { GraduationCap, MapPin, UserRound } from "lucide-react";
 import { resume } from "@/data/resume";
 import SectionReveal from "./SectionReveal";
 
 export default function About() {
+  const education = resume.education[0];
   return (
-    <SectionReveal id="about" className="scroll-mt-28 px-4 py-20 sm:px-6">
-      <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+    <SectionReveal id="about" className="border-y-4 border-double border-[#594d3d] bg-[#d8c7a7]/55 px-5 py-12 sm:px-10 lg:px-16">
+      <div className="grid gap-8 lg:grid-cols-[auto_1fr_1fr]">
+        <p className="vertical-label section-kicker">Section I · Profile</p>
         <div>
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-emerald-200/80">
-            About
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
-            Practical builder, cinematic presentation.
-          </h2>
+          <p className="section-kicker">Editorial Introduction</p>
+          <h2 className="section-title mt-3">A considered<br/><em className="font-normal">point of view.</em></h2>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-white/10 bg-white/[0.055] p-6 shadow-2xl shadow-black/20 backdrop-blur-xl sm:col-span-2">
-            <UserRound className="mb-5 text-emerald-200" size={24} aria-hidden="true" />
-            <p className="text-base leading-8 text-white/74">{resume.about}</p>
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="md:col-span-2"><p className="text-lg leading-8">{resume.about}</p></div>
+          <div className="border-t border-[#8d7c62] pt-4">
+            <p className="small-caps text-[#743f43]">Place of Work</p><p className="mt-2 text-xl">{resume.location}</p>
           </div>
-          <div className="rounded-lg border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl">
-            <MapPin className="mb-4 text-rose-200" size={22} aria-hidden="true" />
-            <p className="text-sm text-white/52">Location</p>
-            <p className="mt-2 font-medium text-white">{resume.location}</p>
-          </div>
-          <div className="rounded-lg border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl">
-            <GraduationCap className="mb-4 text-emerald-200" size={22} aria-hidden="true" />
-            <p className="text-sm text-white/52">Education</p>
-            <p className="mt-2 font-medium text-white">
-              {resume.education[0]?.degree ?? "Education"}
-            </p>
-            <p className="mt-1 text-sm text-white/58">
-              {resume.education[0]?.school}
-            </p>
+          <div className="border-t border-[#8d7c62] pt-4">
+            <p className="small-caps text-[#743f43]">Education</p><p className="mt-2 text-xl">{education?.degree}</p><p className="mt-1 text-sm text-[#6f6557]">{education?.school} · {education?.period}</p>
           </div>
         </div>
       </div>
