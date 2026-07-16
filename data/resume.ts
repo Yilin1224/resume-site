@@ -1,11 +1,11 @@
 export const resume = {
     name: "Yilin Dai",
-    title: "Marketing Associate / Recruitment Specialist / Designer",
-    location: "Chicago, IL",
-    email: "your@email.com",
+    title: "Marketing Associate / Recruitment Specialist ",
+    location: "Chicago/Houston",
+    email: "yilindai1224@gmail.com",
   
     links: {
-      github: "https://github.com/yourname",
+      github: "https://github.com/Yilin1224/resume-site",
       linkedin: "https://linkedin.com/in/yourname",
       portfolio: "",
     },
