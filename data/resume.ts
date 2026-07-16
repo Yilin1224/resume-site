@@ -6,7 +6,7 @@ export const resume = {
   
     links: {
       github: "https://github.com/Yilin1224/resume-site",
-      linkedin: "hhttps://www.linkedin.com/in/yilindai1224/",
+      linkedin: "https://www.linkedin.com/in/yilindai1224/",
       portfolio: "",
     },
   
